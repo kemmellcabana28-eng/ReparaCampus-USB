@@ -1,0 +1,69 @@
+@startuml modelo
+skinparam shadowing false
+skinparam defaultFontName Arial
+hide circle
+title Figura 2. Modelo de datos
+
+entity usuarios {
+  *id : INTEGER <<PK>>
+  --
+  username : TEXT <<UNIQUE>>
+  nombre : TEXT
+  rol : SOLICITANTE | COORDINADOR | TECNICO
+  password_hash : TEXT
+  activo : 0 | 1
+}
+entity incidencias {
+  *id : INTEGER <<PK>>
+  --
+  codigo : TEXT <<UNIQUE>>
+  ubicacion, categoria
+  descripcion : TEXT
+  impacto : BAJO | ALTO
+  riesgo_personas : 0 | 1
+  prioridad : CRITICA | ALTA | NORMAL
+  estado : TEXT
+  solicitante_id : FK
+  tecnico_id : FK (nulo hasta asignar)
+  creada_en : UTC
+}
+entity asignaciones {
+  *id <<PK>>
+  --
+  incidencia_id : FK
+  coordinador_id : FK
+  tecnico_id : FK
+  fecha : UTC
+}
+entity soluciones {
+  *id <<PK>>
+  --
+  incidencia_id : FK
+  tecnico_id : FK
+  texto : 20..800
+  fecha : UTC
+}
+entity cierres {
+  *id <<PK>>
+  --
+  incidencia_id : FK
+  solicitante_id : FK
+  fecha : UTC
+}
+entity eventos <<append-only>> {
+  *id <<PK>>
+  --
+  incidencia_id : FK
+  autor_id : FK
+  fecha : UTC
+  estado_anterior, estado_nuevo
+  accion : CREACION | ASIGNACION | INICIO_ATENCION |\nSOLUCION | CIERRE | RECHAZO | REAPERTURA
+  detalle : solución o motivo
+}
+usuarios ||--o{ incidencias : "solicita"
+usuarios ||--o{ incidencias : "atiende"
+incidencias ||--o| asignaciones : "tiene"
+incidencias ||--o{ soluciones : "acumula"
+incidencias ||--o{ cierres : "acumula"
+incidencias ||--|{ eventos : "historial"
+@enduml

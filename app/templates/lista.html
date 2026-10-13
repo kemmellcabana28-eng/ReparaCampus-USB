@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block contenido %}
+<h1>Incidencias</h1>
+<form method="get" class="filtros">
+  <label>Estado
+    <select name="estado"><option value="">Todos</option>
+      {% for e in ESTADOS %}<option value="{{ e }}" {{ 'selected' if e == estado }}>{{ e }}</option>{% endfor %}
+    </select></label>
+  <label>Prioridad
+    <select name="prioridad"><option value="">Todas</option>
+      {% for p in PRIORIDADES %}<option value="{{ p }}" {{ 'selected' if p == prioridad }}>{{ p }}</option>{% endfor %}
+    </select></label>
+  <button type="submit">Filtrar</button>
+</form>
+{% if incidencias %}
+<table>
+  <thead><tr><th>Código</th><th>Ubicación</th><th>Categoría</th><th>Prioridad</th><th>Estado</th><th>Solicitante</th></tr></thead>
+  <tbody>
+  {% for i in incidencias %}
+    <tr>
+      <td><a href="{{ url_for('web.ver', codigo=i.codigo) }}">{{ i.codigo }}</a></td>
+      <td>{{ i.ubicacion }}</td><td>{{ i.categoria }}</td>
+      <td><span class="p-{{ i.prioridad }}">{{ i.prioridad }}</span></td>
+      <td>{{ i.estado }}</td><td>{{ i.solicitante }}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% else %}
+<p class="vacio">No hay incidencias con estos criterios.
+  {% if usuario.rol == 'SOLICITANTE' %}<a href="{{ url_for('web.nueva') }}">Reporta un daño</a>.{% endif %}</p>
+{% endif %}
+{% endblock %}

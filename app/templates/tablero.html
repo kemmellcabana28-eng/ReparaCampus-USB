@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block contenido %}
+<h1>Tablero del coordinador</h1>
+<p class="cifra">Porcentaje de cierre: <strong>{{ t.porcentaje_cierre }}</strong>
+  <span class="nota">({{ t.por_estado['CERRADA'] }} cerradas de {{ t.total }})</span></p>
+<div class="dos">
+  <section class="tarjeta"><h2>Por estado</h2>
+    <table>{% for e, n in t.por_estado.items() %}<tr><td>{{ e }}</td><td>{{ n }}</td></tr>{% endfor %}</table></section>
+  <section class="tarjeta"><h2>Por prioridad</h2>
+    <table>{% for p, n in t.por_prioridad.items() %}<tr><td>{{ p }}</td><td>{{ n }}</td></tr>{% endfor %}</table></section>
+</div>
+<section class="tarjeta"><h2>Críticas sin cerrar</h2>
+  {% if t.criticas_abiertas %}
+  <table>{% for c in t.criticas_abiertas %}<tr>
+    <td><a href="{{ url_for('web.ver', codigo=c.codigo) }}">{{ c.codigo }}</a></td><td>{{ c.ubicacion }}</td><td>{{ c.estado }}</td></tr>{% endfor %}</table>
+  {% else %}<p class="vacio">No hay incidencias críticas pendientes.</p>{% endif %}
+</section>
+{% endblock %}

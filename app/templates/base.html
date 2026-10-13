@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ReparaCampus</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<header class="barra">
+  <a class="marca" href="{{ url_for('web.lista') }}">ReparaCampus</a>
+  {% if usuario %}
+  <nav>
+    <a href="{{ url_for('web.lista') }}">Incidencias</a>
+    {% if usuario.rol == 'SOLICITANTE' %}<a href="{{ url_for('web.nueva') }}">Reportar daño</a>{% endif %}
+    {% if usuario.rol == 'COORDINADOR' %}<a href="{{ url_for('web.tablero') }}">Tablero</a>{% endif %}
+  </nav>
+  <form method="post" action="{{ url_for('web.logout') }}" class="sesion">
+    <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+    <span>{{ usuario.nombre }} · {{ usuario.rol }}</span>
+    <button type="submit" class="secundario">Cerrar sesión</button>
+  </form>
+  {% endif %}
+</header>
+<main>
+  {% for m in get_flashed_messages() %}<p class="aviso">{{ m }}</p>{% endfor %}
+  {% block contenido %}{% endblock %}
+</main>
+</body>
+</html>

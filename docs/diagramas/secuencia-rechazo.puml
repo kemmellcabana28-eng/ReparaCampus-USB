@@ -1,0 +1,38 @@
+@startuml secuencia
+skinparam shadowing false
+skinparam defaultFontName Arial
+title Figura 4. Secuencia: rechazo de una solución
+
+actor Solicitante as U
+participant "Navegador" as B
+participant "routes.py" as R
+participant "services.rechazar" as S
+database "SQLite" as DB
+
+U -> B : escribe motivo y pulsa "Rechazar"
+B -> R : POST /incidencias/INC-0001/rechazar (cookie de sesión + CSRF)
+R -> R : verifica CSRF y carga usuario desde la sesión
+R -> S : rechazar(db, usuario, codigo, motivo, ahora_servidor)
+S -> S : exige rol SOLICITANTE
+S -> DB : BEGIN IMMEDIATE
+S -> DB : SELECT incidencia
+alt incidencia no existe
+  S --> R : NoEncontradoError (404)
+else el usuario no es el dueño
+  S -> DB : ROLLBACK
+  S --> R : PermisoError (403)
+else estado ≠ PENDIENTE_VALIDACION
+  S -> DB : ROLLBACK
+  S --> R : EstadoError (409)
+else motivo fuera de 10..300 (tras trim)
+  S -> DB : ROLLBACK
+  S --> R : ValidacionError (400)
+else permitido
+  S -> DB : UPDATE estado = EN_ATENCION\nWHERE estado = PENDIENTE_VALIDACION
+  S -> DB : INSERT evento RECHAZO (autor, fecha UTC,\nestados, motivo)
+  S -> DB : COMMIT (estado + evento juntos)
+  S --> R : éxito
+  R --> B : 302 a detalle (mismo técnico y solución previa conservados)
+end
+R --> B : en error: página con mensaje y código HTTP\n(sin cambios de estado ni historial)
+@enduml

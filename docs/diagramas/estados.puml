@@ -1,0 +1,17 @@
+@startuml estados
+skinparam shadowing false
+skinparam defaultFontName Arial
+title Figura 3. Estados de una incidencia (incluye rechazo y reapertura)
+
+[*] --> REGISTRADA : solicitante registra
+REGISTRADA --> ASIGNADA : coordinador asigna\na técnico activo
+ASIGNADA --> EN_ATENCION : técnico asignado inicia
+EN_ATENCION --> PENDIENTE_VALIDACION : técnico asignado\nregistra solución (20..800)
+PENDIENTE_VALIDACION --> CERRADA : solicitante dueño confirma
+PENDIENTE_VALIDACION --> EN_ATENCION : solicitante dueño rechaza\n(motivo 10..300, mismo técnico)
+CERRADA --> EN_ATENCION : solicitante dueño reabre\n(motivo 10..300, ≤ 48 h del último cierre,\nmismo técnico)
+note bottom of CERRADA
+  No hay cierre automático, edición ni reasignación.
+  Cualquier otra transición se rechaza sin cambios.
+end note
+@enduml

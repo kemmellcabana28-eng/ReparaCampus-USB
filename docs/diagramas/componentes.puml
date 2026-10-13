@@ -1,0 +1,27 @@
+@startuml componentes
+skinparam componentStyle rectangle
+skinparam shadowing false
+skinparam defaultFontName Arial
+title Figura 1. Componentes de ReparaCampus (monolito modular)
+
+actor "Solicitante / Coordinador / Técnico" as U
+package "Interfaz (HTML + CSS + Jinja)" {
+  [Plantillas Jinja\n(lista, detalle, nueva, tablero)] as UI
+}
+package "Servidor Flask" {
+  [routes.py\nSesión, CSRF, ruteo] as R
+  [services.py\nReglas, permisos,\nvalidación, transiciones] as S
+  [db.py\nConexión y transacciones] as D
+}
+database "SQLite\nschema.sql + triggers" as DB
+
+U --> UI : navegador
+UI --> R : HTTP (formularios)
+R --> S : usuario de la sesión + datos
+S --> D : consultas / BEGIN IMMEDIATE
+D --> DB : estado + evento\nen una transacción
+note right of S
+  Todas las reglas se ejecutan aquí.
+  Ocultar botones no es un control.
+end note
+@enduml

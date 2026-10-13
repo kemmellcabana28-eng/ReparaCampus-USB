@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% block contenido %}
+<section class="tarjeta angosta">
+  <h1>No se pudo completar la operación</h1>
+  <p class="error">{{ mensaje }}</p>
+  <p>No se hizo ningún cambio. <a href="{{ url_for('web.lista') }}">Volver a las incidencias</a></p>
+</section>
+{% endblock %}

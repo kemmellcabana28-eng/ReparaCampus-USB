@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block contenido %}
+<section class="tarjeta">
+  <h1>Reportar un daño</h1>
+  {% if error %}<p class="error">{{ error }}</p>{% endif %}
+  <form method="post">
+    <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+    <label>Ubicación
+      <select name="ubicacion" required>{% for u in UBICACIONES %}<option {{ 'selected' if v.get('ubicacion') == u }}>{{ u }}</option>{% endfor %}</select></label>
+    <label>Categoría
+      <select name="categoria" required>{% for c in CATEGORIAS %}<option {{ 'selected' if v.get('categoria') == c }}>{{ c }}</option>{% endfor %}</select></label>
+    <label>Descripción (20 a 500 caracteres)
+      <textarea name="descripcion" rows="5" required>{{ v.get('descripcion', '') }}</textarea></label>
+    <label>Impacto
+      <select name="impacto" required>{% for i in IMPACTOS %}<option {{ 'selected' if v.get('impacto') == i }}>{{ i }}</option>{% endfor %}</select></label>
+    <label>¿Hay riesgo para personas?
+      <select name="riesgo_personas" required>
+        <option value="false" {{ 'selected' if v.get('riesgo_personas') != 'true' }}>No</option>
+        <option value="true" {{ 'selected' if v.get('riesgo_personas') == 'true' }}>Sí</option>
+      </select></label>
+    <button type="submit">Enviar reporte</button>
+  </form>
+</section>
+{% endblock %}
