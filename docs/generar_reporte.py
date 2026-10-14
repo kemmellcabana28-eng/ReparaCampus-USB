@@ -28,7 +28,7 @@ try:
     sha = subprocess.check_output(["git", "rev-parse", "--short", "HEAD"], text=True,
                                   stderr=subprocess.DEVNULL).strip()
 except Exception:
-    sha = "[COMPLETAR: SHA del commit]"
+    sha = "no disponible (sin repositorio Git)"
 filas.sort(key=lambda f: (int(re.sub(r"\D", "", f[0])), f[0]))
 total = sum(f[3] for f in filas)
 fecha = datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
