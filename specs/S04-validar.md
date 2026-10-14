@@ -8,7 +8,7 @@
 
 **Alcance y exclusiones.** Confirmar, rechazar y reabrir. Excluye cierre automático y acciones del coordinador en nombre del solicitante.
 
-**Entradas.** Código; motivo de 10 a 300 caracteres tras el trim, para rechazar o reabrir.
+**Entradas.** Código; motivo de 10 a 300 caracteres tras el trim, para rechazar o reabrir (confirmar no lleva motivo).
 
 **Precondiciones y permisos.** Solo el solicitante dueño. El coordinador no confirma ni reabre en su nombre.
 
