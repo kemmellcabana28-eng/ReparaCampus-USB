@@ -1,6 +1,6 @@
 # S00 · Problema, alcance y reglas comunes
 
-**Versión / autor / revisor / fecha:** v1.0 / [COMPLETAR autor] / [COMPLETAR revisor] / [COMPLETAR fecha]
+**Versión / autor / revisor / fecha: v1.0 / Kemmell cabana /   Arnold cantillo/ 8-10-2026
 
 **Necesidad.** La Universidad Simón Bolívar recibe reportes de daños de infraestructura por canales dispersos y a veces los cierra sin saber si quedaron resueltos. Se requiere un prototipo para registrar, priorizar, asignar, atender y validar incidencias.
 
@@ -46,8 +46,8 @@
 
 | ID | Supuesto | Estado |
 |:----|:--------------------------------------------------------|:--------------|
-| A1 | Leer una incidencia ajena responde 404 para no revelar su existencia | Sin confirmar |
-| A2 | El porcentaje usa el estado actual: una incidencia reabierta no cuenta como cerrada | Sin confirmar |
+| A1 | Leer una incidencia ajena responde 404 para no revelar su existencia | sin confirmar |
+| A2 | El porcentaje usa el estado actual: una incidencia reabierta no cuenta como cerrada | sin confirmar |
 | A3 | El código tiene el formato INC-0001, secuencial | Sin confirmar |
 | A4 | El porcentaje se redondea mitad hacia arriba, con un decimal y coma decimal | Sin confirmar |
 | A5 | Sin notificaciones: el técnico se entera consultando su lista | Sin confirmar |
