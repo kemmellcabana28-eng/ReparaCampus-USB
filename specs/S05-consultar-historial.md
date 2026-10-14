@@ -1,6 +1,6 @@
 # SPEC S05 · Consultar e historizar
 
-**Versión / autor / revisor / fecha:** v1.0 / [COMPLETAR autor] / [COMPLETAR revisor] / [COMPLETAR fecha]
+**Versión / autor / revisor / fecha:** v1.0 /   johan viviescas/ Arnold cantillo/8-10-2026
 
 **Requisito asociado:** RF05
 
@@ -34,4 +34,4 @@
 
 **Pruebas y resultados esperados.** tests/test_s05_consultar_historial.py (t33–t42).
 
-**Decisión de revisión / versión aprobada:** [COMPLETAR: aprobada / ajustar, revisor, fecha]
+**Decisión de revisión / versión aprobada:** aprobada / jaider Lozano/8-10-2026
