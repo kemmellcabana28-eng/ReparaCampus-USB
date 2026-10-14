@@ -1,6 +1,6 @@
 # SPEC S04 · Validar
 
-**Versión / autor / revisor / fecha:** v1.0 / [COMPLETAR autor] / [COMPLETAR revisor] / [COMPLETAR fecha]
+**Versión / autor / revisor / fecha:** v1.0 / Kemmell cabana/ jaider lozano / 8-10-2026
 
 **Requisito asociado:** RF04
 
@@ -33,4 +33,4 @@
 
 **Pruebas y resultados esperados.** tests/test_s04_validar.py (t23–t32), con fechas ficticias fijas y avance controlado del reloj.
 
-**Decisión de revisión / versión aprobada:** [COMPLETAR: aprobada / ajustar, revisor, fecha]
+**Decisión de revisión / versión aprobada:** aprobada / johan viviescas /8-10-2026
