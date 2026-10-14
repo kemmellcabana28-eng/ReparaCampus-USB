@@ -8,7 +8,7 @@
 
 **Alcance y exclusiones.** Listado con filtros, detalle con historial y tablero. Excluye edición o borrado de eventos.
 
-**Entradas.** Filtros opcionales de estado y de prioridad (valores permitidos).
+**Entradas.** Filtros opcionales de estado y de prioridad (valores permitidos); sin filtros se listan todas las incidencias del alcance del rol.
 
 **Precondiciones y permisos.** SOLICITANTE: solo las propias. TECNICO: solo las asignadas a él. COORDINADOR: todas, más el tablero.
 
