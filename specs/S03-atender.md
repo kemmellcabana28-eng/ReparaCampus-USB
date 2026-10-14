@@ -1,6 +1,6 @@
 # SPEC S03 · Atender
 
-**Versión / autor / revisor / fecha: v1.0 / jaider lozano/ Kemmell cabana/ 8-10-2026
+**Versión / autor / revisor / fecha:** v1.0 / Jaider Lozano / Kemmell Cabana / 8/10/2026
 
 **Requisito asociado:** RF03
 
@@ -32,4 +32,4 @@
 
 **Pruebas y resultados esperados.** tests/test_s03_atender.py (t16–t22).
 
-**Decisión de revisión / versión aprobada:** aprobada / Sebastian murcia/ 8-10-2026
+**Decisión de revisión / versión aprobada:** aprobada / Kemmell Cabana / 8/10/2026

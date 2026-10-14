@@ -1,6 +1,6 @@
 # SPEC S01 · Registrar incidencia
 
-**Versión / autor / revisor / fecha: v1.0 / Arnold cantillo / jaider lozano/ 8/10/2026
+**Versión / autor / revisor / fecha:** v1.0 / Arnold Cantillo / Jaider Lozano / 8/10/2026
 
 **Requisito asociado:** RF01
 
@@ -32,4 +32,4 @@
 
 **Pruebas y resultados esperados.** tests/test_s01_registrar.py (t01–t08), con valores límite 19, 20, 500 y 501.
 
-**Decisión de revisión / versión aprobada:** aprobada / johan viviescas /8-10-2026
+**Decisión de revisión / versión aprobada:** aprobada / Jaider Lozano / 8/10/2026

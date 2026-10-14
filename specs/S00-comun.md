@@ -1,6 +1,6 @@
 # S00 · Problema, alcance y reglas comunes
 
-**Versión / autor / revisor / fecha: v1.0 / Kemmell cabana /   Arnold cantillo/ 8-10-2026
+**Versión / autor / revisor / fecha:** v1.0 / Kemmell Cabana / Arnold Cantillo / 8/10/2026
 
 **Necesidad.** La Universidad Simón Bolívar recibe reportes de daños de infraestructura por canales dispersos y a veces los cierra sin saber si quedaron resueltos. Se requiere un prototipo para registrar, priorizar, asignar, atender y validar incidencias.
 
