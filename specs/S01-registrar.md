@@ -8,7 +8,7 @@
 
 **Alcance y exclusiones.** Crear una incidencia. Excluye edición posterior y adjuntos.
 
-**Entradas (todas obligatorias).** ubicación ∈ {LAB-01, AULA-201, BIB-01}; categoría ∈ {ELECTRICIDAD, HIDRAULICA, MOBILIARIO, TIC}; descripción de 20 a 500 caracteres tras retirar espacios externos (una descripción de solo espacios cuenta como vacía y se rechaza); impacto ∈ {BAJO, ALTO}; riesgo para personas booleano. El servidor genera código (INC-0001…), autor (sesión), fecha UTC, estado REGISTRADA y prioridad (S02).
+**Entradas (todas obligatorias).** ubicación ∈ {LAB-01, AULA-201, BIB-01}; categoría ∈ {ELECTRICIDAD, HIDRAULICA, MOBILIARIO, TIC}; descripción de 20 a 500 caracteres tras retirar espacios externos; impacto ∈ {BAJO, ALTO}; riesgo para personas booleano. El servidor genera código (INC-0001…), autor (sesión), fecha UTC, estado REGISTRADA y prioridad (S02).
 
 **Precondiciones y permisos.** Sesión activa con rol SOLICITANTE.
 
