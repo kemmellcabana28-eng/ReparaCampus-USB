@@ -1,6 +1,6 @@
 # SPEC S02 · Priorizar y asignar
 
-**Versión / autor / revisor / fecha:** v1.0 / [COMPLETAR autor] / [COMPLETAR revisor] / [COMPLETAR fecha]
+**Versión / autor / revisor / fecha: v1.0 / Sebastian murcia/ johan vivescas / 8-10-2026
 
 **Requisito asociado:** RF02
 
@@ -32,4 +32,4 @@
 
 **Pruebas y resultados esperados.** tests/test_s02_priorizar_asignar.py (t09–t15). Los esperados se escriben a mano, sin usar la función de producción.
 
-**Decisión de revisión / versión aprobada:** [COMPLETAR: aprobada / ajustar, revisor, fecha]
+**Decisión de revisión / versión aprobada:** aprobada /  Sebastian Murcia /8-10-2026
