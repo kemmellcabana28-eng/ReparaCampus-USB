@@ -1,6 +1,6 @@
 **Comando:** `python -m pytest -v --junitxml=reporte-pytest.xml`  
-**Fecha de ejecución:** 2026-10-12 03:38 UTC  
-**SHA:** [COMPLETAR: SHA del commit]  
+**Fecha de ejecución:** 2026-10-14 01:23 UTC  
+**SHA:** 96ebe32  
 **Resultado:** 97 casos ejecutados en 52 escenarios; 97 casos aprobados.
 
 | ID | SPEC / AC | Escenario y resultado esperado | Casos | Observado |
@@ -54,6 +54,6 @@
 | T46 | S00 (transversal) | Las cinco cuentas existen y la contraseña no se guarda en claro. | 1 | Cumple |
 | T47 | S00 (transversal) | Un 'reinicio' (nueva instancia de la app sobre el mismo archivo) conserva todo. | 1 | Cumple |
 | T48 | S00 (transversal) | Con CSRF activo, un POST sin token válido se rechaza y no cambia nada. | 1 | Cumple |
-| T49 (integración) | S00 (transversal) | Registrar → asignar → iniciar → proponer → confirmar. | 1 | Cumple |
-| T50 (integración) | S00 (transversal) | ... proponer → rechazar → nueva solución → confirmar (conserva ambas soluciones). | 1 | Cumple |
-| T51 (integración) | S00 (transversal) | Cierre → reapertura → nueva solución → nuevo cierre (todo se conserva). | 1 | Cumple |
+| T49 (integración) | AC-S04-01 | Registrar → asignar → iniciar → proponer → confirmar. | 1 | Cumple |
+| T50 (integración) | AC-S04-03 | proponer → rechazar → nueva solución → confirmar (conserva ambas soluciones). | 1 | Cumple |
+| T51 (integración) | AC-S04-07 | Cierre → reapertura → nueva solución → nuevo cierre (todo se conserva). | 1 | Cumple |
