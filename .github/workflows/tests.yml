@@ -1,0 +1,33 @@
+name: Pruebas
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  pytest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - run: python -m pytest -v --junitxml=reporte-pytest.xml
+      - name: Generar reporte
+        if: always()
+        run: python docs/generar_reporte.py
+      - name: Mostrar reporte en el resumen
+        if: always()
+        run: cat docs/reporte-pruebas.md >> "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: reporte-pruebas
+          path: |
+            reporte-pytest.xml
+            docs/reporte-pruebas.md
