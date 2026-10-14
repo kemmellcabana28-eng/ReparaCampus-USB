@@ -8,7 +8,7 @@
 
 **Alcance y exclusiones.** Cálculo de prioridad y asignación. Excluye reasignación y restricción por especialidad.
 
-**Entradas.** Código de la incidencia e identificador del técnico.
+**Entradas.** Código de la incidencia e identificador del técnico; la prioridad no es una entrada: el servidor la calcula con el riesgo y el impacto informados al registrar (S01).
 
 **Precondiciones y permisos.** Rol COORDINADOR; incidencia REGISTRADA; técnico existente, con rol TECNICO y activo.
 
